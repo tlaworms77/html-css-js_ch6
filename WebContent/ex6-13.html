@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* 
+	 var escaped = escape("<h3>Here's a headline!</h3>");
+	 //alert( escaped );
+
+	 var url = "http://mysite.com/?stuff=\"안 대혁!&bar=";
+	 var encodedURL = encodeURI(url);
+
+	 alert(encodedURL); */
+
+	var url = 'http://localhost/mysite2/user?n="심 재근!"&e="tlawors77@naver.com"';
+// 	url = escape(url);
+// 	console.log(escape(url)); // Deprecated 되서 다른것을 사용되기 추천하고있다.
+	url = encodeURI(url);
+	console.log(encodeURI(url));
+	
+	var url2 = 'http://localhost/mysite2';
+	var name = '심재근!';
+	url2 = url2 + "?name=" + encodeURIComponent(name); // component(값)만 escape 시키고 싶을 때만
+	console.log(url2);
+	
+	// 타이머 설정1 - 한번만 실행
+	setTimeout(() => {
+		console.log("redirect");
+ 		//location.href = url;	
+	}, 2000);
+	
+	// 타이머 설정2 - 여러번 실행되게 할 때(interval)
+// 	var num = 0;
+// 	var intervalId = setInterval(() => {
+// 		console.log(++num);
+// 		if(num == 10){
+// 			clearInterval(intervalId);
+// 		}
+// 	}, 1000);
+</script>
+</head>
+<body>
+
+</body>
+</html>

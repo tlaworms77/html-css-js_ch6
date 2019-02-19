@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	background-color: #f00;
+	width: 90px;
+	height: 20px;
+	padding: 40px;
+	cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+	window.onload = function() {
+		var elDiv = document.getElementById('my-box');
+		elDiv.onmousedown = function() {
+			this.style.backgroundColor = "#00f";
+			this.innerText = "마우스를 떼세요"; // strong 과 같이 html을 변경 시 innerHTML <-> TEXT 변경 시 innserText
+		}
+		elDiv.onmouseup = function() {
+			this.style.backgroundColor = "#f00";
+			this.innerText = "클릭하세요";
+		}
+		elDiv.onmouseover = function() {
+			randomX = 250;
+			randomY = 370;
+
+			this.style.left = randomX + "px";
+			this.style.top = randomY + "px";
+			console.log('mouseover');
+		}
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="my-box">클릭하세요</div>
+</body>
+</html>

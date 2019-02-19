@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="browser-detect.js"></script>
+<script type="text/javascript">
+	var displayDate = function() {
+		var pEl = document.getElementById('demo');
+		pEl.innerHTML = new Date();
+	}
+	window.onload = function() {
+		var btnEl = document.getElementById('myBtn');
+		var pEl = document.getElementById('demo'); // var 없으면 전역, but 전역을 잘 쓰지 마시오.
+
+		/* btnEl.onclick=function(){
+		   pEl.innerHTML=new Date();
+		} */
+		btnEl.onclick = displayDate;
+		/* pEl.onmouseover=function(){
+		   pEl.innerHTML=new Date();
+		} */
+		pEl.onmouseover = displayDate;
+
+		pEl.onmouseout = function() {
+			pEl.innerHTML = "";
+		}
+
+		BrowserDetect.init();
+		console.log(
+			BrowserDetect.browser + " : " + 
+			BrowserDetect.version + " : " + 
+			BrowserDetect.OS
+		);
+
+		/* 
+			* BOM & DOM 은 ECMASCRIPT에 없다 오직 JAVASCRIPT에 만 존재!!!
+			navigator -> BOM(Browser Object Model)
+			document  -> DOM(Document Object Model)
+		*/
+		
+		//browser 종류 알아내기
+		//navigator-browser 전체(browser 종류를 알아내는 내장객체 - navigator 문자열)
+		console.log(
+			navigator.userAgent + " : " + 
+			navigator.appVersion + " : " + 
+			navigator.vendor + " : " + 
+			navigator.platform
+		);
+
+		// 쿠키 체크
+		if(navigator.cookieEnabled == true){
+			console.log("쿠키를 사용할 수 있습니다.");
+		} else {
+			console.log("쿠키를 사용할 수 없습니다.");
+		}
+	}
+
+	window.onunload = function() {
+		console.log('onunload');
+		//alert('unload'); -block
+	}
+</script>
+
+</head>
+
+<body>
+	<!-- unload : browser를 탈출할때. -->
+
+	<!-- <p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
+ -->
+	<button id="myBtn">Try it</button>
+
+	<p id="demo"></p>
+
+</body>
+</html>

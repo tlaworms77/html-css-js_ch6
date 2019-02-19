@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var now = new Date(); //현재 시간
+	console.log(now);
+
+	var d = new Date(2019, 1, 8); //2019 년 2월 8일  
+
+	console.log(d + ":" + typeof d);
+
+	d = new Date(2019, 1, 8, 12, 30, 40, 123); // 2019년 2월 8일 12:30:40:123
+	
+	console.log(
+			" 년: " + (d.getYear() + 1900) + "\n" + 
+			" 월: " + (d.getMonth() + 1) + "\n" +
+			" 일: " + d.getDate() + "\n" +
+			" 요일: " + ['일', '월', '화', '수', '목', '금', '토'][d.getDay()] + "\n" +
+			" 시: " + d.getHours() + "\n" +
+			" 분: " + d.getMinutes() + "\n" +
+			" 초: " + d.getSeconds() + "\n" +
+			" 밀리초: " + d.getMilliseconds()
+			);
+	
+	d.setYear(2020); // 2020년 세팅
+	console.log(d);
+	console.log(d.getDay());
+
+	d.setMonth(11); // 12월 세팅
+	console.log(d);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

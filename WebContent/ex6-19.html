@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 
+	 form validation(폼 유효성 체크)
+	
+	 client: JAVAScript -> UX 차원에서 한다. (사용자가 불편하지 않도록)
+	 -> 사용자 경험을 향상 EX) ID값이 비워져있는데 보내버리면 다시 처음부터 다 해야되는 경우가 있어서 
+	 server: Servlet(Controller) -> 보안(정보 보호)
+	 -> DB 보호
+	
+	 양쪽 다 반드시 해주어야 한다!!!
+	 */
+	window.onload = function() {
+		document.getElementById("user-job").onchange = function(){
+			console.log(this.value);
+		}
+		
+		document.getElementById("user-join-form").onsubmit = function() {
+			// formvalidation
+			// 1. 아이디
+			var elInput = document.getElementById("user-id");
+			if(elInput.value == ""){
+				alert("아이디는 필수 입력 사항입니다.");
+				elInput.focus();
+				return false;
+			}
+			
+			// 2. 비밀번호
+			var elPassword = document.getElementById("user-pwd");
+			if(elPassword.value == ""){
+				alert("비밀번호는 필수 입력 사항입니다.");
+				elPassword.focus();
+				return false;
+			}
+			
+			console.log("ok");
+			return true;
+		}
+	}
+</script>
+</head>
+<body>
+	<form id="user-join-form" action="" method="post">
+		아이디 : <input type="text" id="user-id" name="user-id"><br />	<br />
+		비밀번호: <input type="password" id="user-pwd" name="user-pwd"><br /><br />
+		직업: 
+		<select id="user-job">
+			<option>value1</option>
+			<option>value2</option>
+			<option>value3</option>
+			<option>value4</option>
+			<option>value5</option>
+		</select> <br> <input type="submit" value="가입" />
+	</form>
+</body>
+</html>
